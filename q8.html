@@ -1,0 +1,37 @@
+<!-- 8. Write a JavaScript code to perform the two-digit arithmetic operations: Addition, Subtraction,
+Multiplication and Division -->
+
+<html>
+
+<head>
+    <title>Q8 - Two-Digit Arithmetic Operations</title>
+</head>
+
+<body>
+    <h1>Two-Digit Arithmetic Operations</h1>
+    <script>
+        var n1;
+        var n2;
+        var op;
+        n1 = parseInt(prompt("Enter first number: "))
+        n2 = parseInt(prompt("Enter second number: "))
+        op = prompt("Enter operation (+, -, *, /): ")
+
+        switch (op) {
+            case '+':
+                document.write("Result: ", n1 + n2);
+                break;
+            case '-':
+                document.write("Result: ", n1 - n2);
+                break;
+            case '*':
+                document.write("Result: ", n1 * n2);
+                break;
+            case '/':
+                document.write("Result: ", n1 / n2);
+                break;
+        }
+    </script>
+</body>
+
+</html>
