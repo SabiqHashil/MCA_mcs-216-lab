@@ -1,0 +1,100 @@
+<!-- 13. Design a webpage for a software company to accept on-line job applications. The webpage
+must be designed to use form with elements:
+ Position applied for (autofocus), name, nationality, date of birth (selected from an
+auto picker), address (in a text area), telephone number and email (required).
+ Educational history and qualifications.
+ Web Design Lab Web Design Lab Work experience/employment/training in terms of
+employer history and number of years of experience selected from a slider. Set
+maximum years of experience to 10 years.
+ Personal statement.
+ Two referees including names, occupation, relationship, address, telephone. -->
+
+<html>
+
+<head>
+    <title>Q13 - Software Company Job Application Form</title>
+</head>
+
+<body>
+    <h1>Job Application Form</h1>
+    <form action="submit_application.php" method="POST">
+        <!-- Position Applied For -->
+        <label for="position">Position Applied For:</label>
+        <input type="text" id="position" name="position" autofocus required><br><br>
+
+        <!-- Name -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <!-- Nationality -->
+        <label for="nationality">Nationality:</label>
+        <input type="text" id="nationality" name="nationality" required><br><br>
+
+        <!-- Date of Birth -->
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <!-- Address -->
+        <label for="address">Address:</label><br><br>
+        <textarea name="address" id="address" rows="4" cols="5"></textarea><br><br>
+
+        <!-- Telephone Number -->
+        <label for="phone">Telephone Number:</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <!-- Email -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <!-- Educational History and Qualifications -->
+        <label for="education">Educational History and Qualifications:</label>
+        <textarea name="education" id="education" rows="4" cols="50" required></textarea><br><br>
+
+        <!-- Work Exprerience/Employment/Training -->
+        <label for="experience">Work Exprerience (Number of Years):</label><br>
+        <input type="range" id="experience" name="experience" min="0" max="10" step="1"
+            oninput="document.getElementById('expYears').innerText = this.value">
+        <span id="expYears">0</span> Years<br><br>
+        <textarea name="statement" id="statement" rows="4" cols="50"></textarea><br><br>
+
+        <!-- Referee 1 -->
+        <h3>Referee 1</h3>
+        <label for="ref1_name">Name:</label>
+        <input type="text" id="ref1_name" name="ref1_name" required><br><br>
+
+        <label for="ref1_occupation">Occupation</label>
+        <input type="text" id="ref1_occupation" name="ref1_occupation" required><br><br>
+
+        <label for="ref1_relationship">Relationship:</label>
+        <input type="text" id="ref1_relationship" name="ref1_relationship" required><br><br>
+
+        <label for="ref1_address">Address:</label><br>
+        <textarea name="ref1_address" id="ref1_address" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="ref1_phone">Telephone:</label>
+        <input type="tel" id="ref1_phone" name="ref1_phone" required><br><br>
+
+        <!-- Referee 1 -->
+        <h3>Referee 2</h3>
+        <label for="ref2_name">Name:</label>
+        <input type="text" id="ref2_name" name="ref2_name" required><br><br>
+
+        <label for="ref2_occupation">Occupation</label>
+        <input type="text" id="ref2_occupation" name="ref2_occupation" required><br><br>
+
+        <label for="ref2_relationship">Relationship:</label>
+        <input type="text" id="ref2_relationship" name="ref2_relationship" required><br><br>
+
+        <label for="ref2_address">Address:</label><br>
+        <textarea name="ref2_address" id="ref2_address" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="ref2_phone">Telephone:</label>
+        <input type="tel" id="ref2_phone" name="ref2_phone" required><br><br>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Submit Application">
+
+    </form>
+</body>
+
+</html>
