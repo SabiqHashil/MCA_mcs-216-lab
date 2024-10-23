@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <title>Q11 - Expression Calculator</title>
+    <script>
+        function calculateExpression(event) {
+            event.preventDefault(); //Prevent form submission
+
+            //Get the input expression
+            const expression = document.getElementById('expression').value;
+            //Try to evaluate the expression
+            try {
+                const result = eval(expression); //Dangerous, be cautious with untrusted input
+                document.getElementById('result').textContent = result;
+            } catch (error) {
+                document.getElementById('result').textContent = 'Error';
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Enter Your Expressions</h2>
+    <form onsubmit="calculateExpression(event)">
+        <table border="1" cellpadding="5">
+            <tr>
+                <th>Expression</th>
+                <th>Result</th>
+            </tr>
+            <tr>
+                <td>1+1</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>1+1*2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td><input type="text" id="expression" placeholder="Enter expression" required></td>
+                <td id="result"></td>
+            </tr>
+        </table>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+
+</html>
