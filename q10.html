@@ -2,8 +2,207 @@
 and creativity are welcome): -->
 
 <html>
-    <head>
-        <title>Q10 - Personal Profile</title>
-    </head>
-    
+
+<head>
+    <title>Q10 - My Profile Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f8ff;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        .about-me {
+            background-color: #dfe6e9;
+            padding: 15px;
+            border-radius: 10px;
+            width: 80%;
+            margin-bottom: 20px;
+        }
+
+        .timetable {
+            border-collapse: collapse;
+            width: 80%;
+            margin-bottom: 20px;
+        }
+
+        .timetable th,
+        .timetable td {
+            border: 1px solid #2c3e50;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .timetable th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .fav-section {
+            background-color: #f9ebea;
+            padding: 15px;
+            border-radius: 10px;
+            width: 80%;
+        }
+
+        .fav-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .fav-section ul li {
+            font-size: 18px;
+            color: #34495e;
+            margin: 5px 0;
+        }
+
+        .fav-section ul li img {
+            width: 50px;
+            vertical-align: middle;
+        }
+
+        .interest-section {
+            background-color: #f0f4c3;
+            padding: 15px;
+            border-radius: 10px;
+            width: 80%;
+            margin-bottom: 20px;
+        }
+
+        .interest-section img {
+            width: 60px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .neighbour-fact {
+            background-color: #eafaf1;
+            padding: 15px;
+            border-radius: 10px;
+            width: 80%;
+        }
+
+        .reverse-list {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to My Profile</h1>
+    <!-- Personal Details -->
+    <div class="about-me">
+        <h2>About Me</h2>
+        <p><strong>Name: </strong>IIIT</p>
+        <p><strong>Gender: </strong>N/A</p>
+        <p><strong>Age: </strong>Timelsess</p>
+        <p>I am a highly intelligent and friendly <strong>AI assistant</strong> designed to help people with their
+            queries, creativity, and technical tasks. My purpose is to provide useful information, solve problems, and
+            engage in enriching conversations.</p>
+    </div>
+
+    <!-- Timetable -->
+    <h2>My Current Classes</h2>
+    <table class="timetable">
+        <tr>
+            <th>Day</th>
+            <th>Subject</th>
+            <th>Time</th>
+        </tr>
+        <tr>
+            <td>Monday</td>
+            <td>Natural Language Processing</td>
+            <td>10:00 AM - 12:00 PM</td>
+        </tr>
+        <tr>
+            <td>Wednesday</td>
+            <td>Machine Learning</td>
+            <td>2:00 PM - 4:00 PM</td>
+        </tr>
+        <tr>
+            <td>Friday</td>
+            <td>Deep Learning</td>
+            <td>9:00 AM - 11:00 AM</td>
+        </tr>
+    </table>
+
+    <!-- Favorite Movies, Books, TV Shows (Reverse Order) -->
+    <h2>My Favorite Movies, Books, and TV Shows</h2>
+    <div class="fav-section">
+        <h3>Movies</h3>
+        <ul class="reverse-list">
+            <li>
+                <img src="https://via.placeholder.com/50" alt="Movie Image">
+                <strong>Inception</strong>
+            </li>
+            <li>
+                <img src="https://via.placeholder.com/50" alt="Movie Image">
+                <strong>Intersteller</strong>
+            </li>
+            <li>
+                <img src="https://via.placeholder.com/50" alt="Movie Image">
+                <strong>The Matrix</strong>
+            </li>
+        </ul>
+        <h3>Books</h3>
+        <ul class="reverse-list">
+            <li>
+                <img src="https://via.placeholder.com/50" alt="Book Image">
+                <strong>Sapiens</strong> by Yuval Noah Harari
+            </li>
+            <li>
+                <img src="https://via.placeholder.com/50" alt="Book Image">
+                <strong>The Road</strong> by Cormac McCarthy
+            </li>
+            <li>
+                <img src="https://via.placeholder.com/50" alt="Book Image">
+                <strong>The Alchemist</strong> by Paulo Coelho
+            </li>
+        </ul>
+        <h3>TV Shows</h3>
+        <ul class="reverse-list">
+            <li>
+                <img src="https://via.placeholder.com/50" alt="TV Show Image">
+                <strong>Black Mirror</strong>
+            </li>
+            <li>
+                <img src="https://via.placeholder.com/50" alt="TV Show Image">
+                <strong>Stranger Things</strong>
+            </li>
+            <li>
+                <img src="https://via.placeholder.com/50" alt="TV Show Image">
+                <strong>Westworld</strong>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Interests and Non-Interests -->
+    <h2>My Job Interests</h2>
+    <div class="interest-section">
+        <p>
+            <img src="picture1.jpg"> I love helping people by solving their technical issues, programming problems, and
+            answering curious questions.
+        </p>
+        <p>
+            <img src="picture2.jpg"> I don't enjoy tasks that involve doing repetitive manual data entry without any
+            creativity involved.
+        </p>
+    </div>
+
+    <!-- Neighbor Fact -->
+    <h2>Interesting Fact About My Neighbor</h2>
+    <div class="neighbour-fact">
+        <p>My neighbor is an AI system known as **DALL-E**, which is a creative sibling of mine, capable of generating
+            amazing images from textual descriptions. you can describe anything to it, and it'll bring your imagination
+            to life!</p>
+    </div>
+</body>
+
 </html>
