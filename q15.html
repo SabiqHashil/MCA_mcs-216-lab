@@ -1,0 +1,100 @@
+<!-- 15. Create an HTML webpage to show personal information i.e. name, class, qualifications, photo, 
+address etc. Make use of tables as when possible. Apply the following style information using 
+CSS:
+ Display the heading of the page in Arial font and with font size of 18px.
+ Align all the field names like Name, Class, Photo etc to left in the table.
+ Apply yellow color as background colour in left side cells contains field names like 
+Name, Class etc...
+ Set college logo as background image to the web page. -->
+
+<html>
+
+<head>
+    <title>Personal Information</title>
+    <style>
+        /* General page style */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('college_logo.jpg');
+            /* Path to your college logo image */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 150px 150px;
+            /* Adjust as per your image size */
+            background-attachment: fixed;
+        }
+
+        /* Heading style */
+        h1 {
+            font-size: 18px;
+            text-align: center;
+        }
+
+        /* Table style */
+        table {
+            width: 50%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid black;
+        }
+
+        th {
+            background-color: yellow;
+            text-align: left;
+        }
+
+        td {
+            text-align: left;
+        }
+
+        /* Align field names to the left */
+        .left-cell {
+            background-color: yellow;
+        }
+
+        /* Style for the photo */
+        .photo {
+            text-align: center;
+        }
+
+        .photo img {
+            max-width: 150px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Personal Information</h1>
+    <table>
+        <tr>
+            <th class="left-cell">Name</th>
+            <td>John Doe</td>
+        </tr>
+        <tr>
+            <th class="left-cell">Class</th>
+            <td>B.Tech - 3rd Year</td>
+        </tr>
+        <tr>
+            <th class="left-cell">qualifications</th>
+            <td>12th Grade, CBSE</td>
+        </tr>
+        <tr>
+            <th class="left-cell">Photo</th>
+            <td class="photo">
+                <img src="1.jpg" alt="John Doe's Photo"> <!-- Replace with your actual image path -->
+            </td>
+        </tr>
+        <tr>
+            <th class="left-cell">Address</th>
+            <td>123, ABC Street, XYZ City, Country</td>
+        </tr>
+    </table>
+</body>
+
+</html>
