@@ -1,0 +1,69 @@
+<html> 
+
+<head> 
+
+        <title>Display Date and Time</title> 
+
+    <style> 
+
+        /* Style to replicate the box layout in the image */ 
+
+        .box { 
+
+            border: 1px solid black; 
+
+            padding: 10px; 
+
+            width: 400px; 
+
+            margin-bottom: 20px; 
+
+        } 
+
+        .output { 
+
+            margin-top: 10px; 
+
+            font-family: 'Arial', sans-serif; 
+
+        } 
+
+    </style> 
+
+</head> 
+
+<body> 
+
+ 
+
+    <!-- Box with the button to display Date and Time --> 
+
+    <div class="box"> 
+
+        <p>Click on submit button to display Date and Time.</p> 
+
+        <button id="submitBtn" onclick="displayDate()">Submit</button> 
+
+        <div id="dateDisplay" class="output"></div> 
+
+    </div> 
+
+ 
+
+    <script> 
+
+        // Function to display the current date and time on button click 
+
+        function displayDate() { 
+
+            const currentDate = new Date(); 
+
+            document.getElementById("dateDisplay").innerText = currentDate; 
+
+        } 
+
+    </script> 
+
+</body> 
+
+</html> 

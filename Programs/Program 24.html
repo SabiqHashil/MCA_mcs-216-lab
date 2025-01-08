@@ -1,0 +1,247 @@
+<html> 
+
+<head> 
+
+    <title>Library Management</title> 
+
+    <script> 
+
+        // Parent Book class 
+
+        class Book { 
+
+            constructor(title, author, copyrightDate, ISBN, pages, timesCheckedOut, isDiscarded) { 
+
+                this.title = title; 
+
+                this.author = author; 
+
+                this.copyrightDate = copyrightDate; 
+
+                this.ISBN = ISBN; 
+
+                this.pages = pages; 
+
+                this.timesCheckedOut = timesCheckedOut; 
+
+                this.isDiscarded = isDiscarded || false; // Default to false 
+
+            } 
+
+ 
+
+            dispose() { 
+
+                console.log("Dispose method needs to be implemented in child class."); 
+
+            } 
+
+        } 
+
+ 
+
+        // Manual class extends Book 
+
+        class Manual extends Book { 
+
+            constructor(title, author, copyrightDate, ISBN, pages, timesCheckedOut, isDiscarded) { 
+
+                super(title, author, copyrightDate, ISBN, pages, timesCheckedOut, isDiscarded); 
+
+            } 
+
+ 
+
+            dispose() { 
+
+                const currentYear = new Date().getFullYear(); 
+
+                const bookAge = currentYear - this.copyrightDate; 
+
+ 
+
+                if (bookAge > 5) { 
+
+                    this.isDiscarded = true; 
+
+                    return `Manual "${this.title}" is discarded due to being more than 5 years old.`; 
+
+                } else { 
+
+                    return `Manual "${this.title}" is still valid.`; 
+
+                } 
+
+            } 
+
+        } 
+
+ 
+
+        // Novel class extends Book 
+
+        class Novel extends Book { 
+
+            constructor(title, author, copyrightDate, ISBN, pages, timesCheckedOut, isDiscarded) { 
+
+                super(title, author, copyrightDate, ISBN, pages, timesCheckedOut, isDiscarded); 
+
+            } 
+
+ 
+
+            dispose() { 
+
+                if (this.timesCheckedOut > 100) { 
+
+                    this.isDiscarded = true; 
+
+                    return `Novel "${this.title}" is discarded due to being checked out more than 100 times.`; 
+
+                } else { 
+
+                    return `Novel "${this.title}" is still valid.`; 
+
+                } 
+
+            } 
+
+ 
+
+            checkOut() { 
+
+                this.timesCheckedOut++; 
+
+            } 
+
+        } 
+
+ 
+
+        // Function to handle manual book creation 
+
+        function createManual() { 
+
+            const title = document.getElementById("manualTitle").value; 
+
+            const author = document.getElementById("manualAuthor").value; 
+
+            const copyrightDate = parseInt(document.getElementById("manualCopyright").value, 10); 
+
+            const ISBN = document.getElementById("manualISBN").value; 
+
+            const pages = parseInt(document.getElementById("manualPages").value, 10); 
+
+            const timesCheckedOut = parseInt(document.getElementById("manualCheckedOut").value, 10); 
+
+ 
+
+            const manualBook = new Manual(title, author, copyrightDate, ISBN, pages, timesCheckedOut); 
+
+ 
+
+            // Show whether the manual should be discarded or not 
+
+            document.getElementById("manualResult").innerText = manualBook.dispose(); 
+
+        } 
+
+ 
+
+        // Function to handle novel book creation 
+
+        function createNovel() { 
+
+            const title = document.getElementById("novelTitle").value; 
+
+            const author = document.getElementById("novelAuthor").value; 
+
+            const copyrightDate = parseInt(document.getElementById("novelCopyright").value, 10); 
+
+            const ISBN = document.getElementById("novelISBN").value; 
+
+            const pages = parseInt(document.getElementById("novelPages").value, 10); 
+
+            const timesCheckedOut = parseInt(document.getElementById("novelCheckedOut").value, 10); 
+
+ 
+
+            const novelBook = new Novel(title, author, copyrightDate, ISBN, pages, timesCheckedOut); 
+
+ 
+
+            // Show whether the novel should be discarded or not 
+
+            document.getElementById("novelResult").innerText = novelBook.dispose(); 
+
+        } 
+
+    </script> 
+
+</head> 
+
+<body> 
+
+    <h1>Library Management</h1> 
+
+ 
+
+    <!-- Manual Book Section --> 
+
+    <h2>Manual Book</h2> 
+
+    <label>Title: <input type="text" id="manualTitle"></label><br> 
+
+    <label>Author: <input type="text" id="manualAuthor"></label><br> 
+
+    <label>Copyright Date: <input type="number" id="manualCopyright"></label><br> 
+
+    <label>ISBN: <input type="text" id="manualISBN"></label><br> 
+
+    <label>Pages: <input type="number" id="manualPages"></label><br> 
+
+    <label>Times Checked Out: <input type="number" id="manualCheckedOut"></label><br> 
+
+    <button onclick="createManual()">Check Manual Status</button> 
+
+ 
+
+    <!-- Result for manual --> 
+
+    <p id="manualResult"></p> 
+
+ 
+
+    <hr> 
+
+ 
+
+    <!-- Novel Book Section --> 
+
+    <h2>Novel Book</h2> 
+
+    <label>Title: <input type="text" id="novelTitle"></label><br> 
+
+    <label>Author: <input type="text" id="novelAuthor"></label><br> 
+
+    <label>Copyright Date: <input type="number" id="novelCopyright"></label><br> 
+
+    <label>ISBN: <input type="text" id="novelISBN"></label><br> 
+
+    <label>Pages: <input type="number" id="novelPages"></label><br> 
+
+    <label>Times Checked Out: <input type="number" id="novelCheckedOut"></label><br> 
+
+    <button onclick="createNovel()">Check Novel Status</button> 
+
+ 
+
+    <!-- Result for novel --> 
+
+    <p id="novelResult"></p> 
+
+ 
+
+</body> 
+
+</html> 

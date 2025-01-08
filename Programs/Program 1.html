@@ -1,0 +1,169 @@
+<html> 
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Arithmetic Operations</title> 
+
+    <style> 
+
+        body { 
+
+            font-family: Arial, sans-serif; 
+
+            margin: 50px; 
+
+        } 
+
+        input { 
+
+            padding: 10px; 
+
+            width: 100px; 
+
+            margin: 5px; 
+
+        } 
+
+        button { 
+
+            padding: 10px 20px; 
+
+            margin: 5px; 
+
+        } 
+
+        .result { 
+
+            margin-top: 20px; 
+
+            font-size: 20px; 
+
+            color: blue; 
+
+        } 
+
+    </style> 
+
+</head> 
+
+<body> 
+
+ 
+
+    <h1>Two-Digit Arithmetic Operations</h1> 
+
+ 
+
+    <label for="num1">Enter first number:</label> 
+
+    <input type="number" id="num1" placeholder="Number 1"><br> 
+
+ 
+
+    <label for="num2">Enter second number:</label> 
+
+    <input type="number" id="num2" placeholder="Number 2"><br><br> 
+
+ 
+
+    <button onclick="performAddition()">Addition</button> 
+
+    <button onclick="performSubtraction()">Subtraction</button> 
+
+    <button onclick="performMultiplication()">Multiplication</button> 
+
+    <button onclick="performDivision()">Division</button> 
+
+ 
+
+    <div class="result" id="result"></div> 
+
+ 
+
+    <script> 
+
+        // Function to get input values 
+
+        function getInputValues() { 
+
+            const num1 = parseFloat(document.getElementById('num1').value); 
+
+            const num2 = parseFloat(document.getElementById('num2').value); 
+
+            return { num1, num2 }; 
+
+        } 
+
+ 
+
+        // Function for Addition 
+
+        function performAddition() { 
+
+            const { num1, num2 } = getInputValues(); 
+
+            const result = num1 + num2; 
+
+            document.getElementById('result').textContent = "Result: " + result; 
+
+        } 
+
+ 
+
+        // Function for Subtraction 
+
+        function performSubtraction() { 
+
+            const { num1, num2 } = getInputValues(); 
+
+            const result = num1 - num2; 
+
+            document.getElementById('result').textContent = "Result: " + result; 
+
+        } 
+
+ 
+
+        // Function for Multiplication 
+
+        function performMultiplication() { 
+
+            const { num1, num2 } = getInputValues(); 
+
+            const result = num1 * num2; 
+
+            document.getElementById('result').textContent = "Result: " + result; 
+
+        } 
+
+ 
+
+        // Function for Division 
+
+        function performDivision() { 
+
+            const {num1, num2} = getInputValues(); 
+
+            if (num2 === 0) { 
+
+                document.getElementById('result').textContent = "Error: Division by zero is not allowed."; 
+
+            } else { 
+
+                const result = num1 / num2; 
+
+                document.getElementById('result').textContent = "Result: " + result; 
+
+            } 
+
+        } 
+
+    </script> 
+
+</body> 
+
+</html> 

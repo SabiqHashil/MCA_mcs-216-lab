@@ -1,0 +1,43 @@
+<html> 
+
+<head> 
+
+     
+
+    <title>Convert to Uppercase</title> 
+
+    <script> 
+
+        // Function to convert input text to uppercase when the text changes 
+
+        function convertToUpperCase() { 
+
+            let inputField = document.getElementById("textInput"); 
+
+            inputField.value = inputField.value.toUpperCase(); 
+
+        } 
+
+    </script> 
+
+</head> 
+
+<body> 
+
+ 
+
+    <h1>Text Auto-Uppercase</h1> 
+
+    <p>Enter text in the box below, and it will be automatically converted to uppercase:</p> 
+
+     
+
+    <!-- Text input with onChange event to trigger the conversion --> 
+
+    <input type="text" id="textInput" onChange="convertToUpperCase()" placeholder="Type something..."> 
+
+ 
+
+</body> 
+
+</html> 

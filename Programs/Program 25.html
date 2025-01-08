@@ -1,0 +1,111 @@
+<html> 
+
+<head> 
+
+     
+
+    <title>Product Details</title> 
+
+    <script> 
+
+        // Product class definition 
+
+        class Product { 
+
+            constructor(ID, name, description, price) { 
+
+                this.ID = ID; 
+
+                this.name = name; 
+
+                this.description = description; 
+
+                this.price = price; 
+
+            } 
+
+ 
+
+            // Method to calculate discounted price 
+
+            calculateDisc(percentage) { 
+
+                const discountAmount = (this.price * percentage) / 100; 
+
+                return this.price - discountAmount; 
+
+            } 
+
+ 
+
+            // Method to display product details 
+
+            displayProductDetails(discountPercentage) { 
+
+                const discountedPrice = this.calculateDisc(discountPercentage); 
+
+                return `Product Name: ${this.name}<br>Description: ${this.description}<br>Discounted Price: $${discountedPrice.toFixed(2)}`; 
+
+            } 
+
+        } 
+
+ 
+
+        // Function to create and display product details 
+
+        function showProductDetails() { 
+
+            // Create a Product object 
+
+            const product = new Product( 
+
+                101,                                // ID 
+
+                "Smartphone",                       // Name 
+
+                "Latest model with advanced features", // Description 
+
+                699.99                              // Price 
+
+            ); 
+
+ 
+
+            // Get discount percentage from user input 
+
+            const discountPercentage = parseFloat(document.getElementById("discount").value); 
+
+ 
+
+            // Display product details 
+
+            document.getElementById("productDetails").innerHTML = product.displayProductDetails(discountPercentage); 
+
+        } 
+
+    </script> 
+
+</head> 
+
+<body> 
+
+    <h1>Product Details</h1> 
+
+ 
+
+    <p>Enter Discount Percentage:</p> 
+
+    <input type="number" id="discount" placeholder="Discount Percentage" min="0" max="100"> 
+
+    <button onclick="showProductDetails()">Show Product Details</button> 
+
+ 
+
+    <!-- Div to display product details --> 
+
+    <div id="productDetails"></div> 
+
+</body> 
+
+</html> 

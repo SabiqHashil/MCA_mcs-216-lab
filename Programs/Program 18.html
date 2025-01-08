@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>appendChild Example</title> 
+
+    <script> 
+
+        function addParagraph() { 
+
+            // Create a new <p> element 
+
+            var newParagraph = document.createElement("p"); 
+
+             
+
+            // Create a text node for the new <p> element 
+
+            var textNode = document.createTextNode("This is a new paragraph added dynamically."); 
+
+             
+
+            // Append the text node to the <p> element 
+
+            newParagraph.appendChild(textNode); 
+
+             
+
+            // Append the new <p> element as a child to the <div> with id 'container' 
+
+            document.getElementById("container").appendChild(newParagraph); 
+
+        } 
+
+    </script> 
+
+</head> 
+
+<body> 
+
+ 
+
+    <div id="container"> 
+
+        <h2>Append Child Example</h2> 
+
+    </div> 
+
+ 
+
+    <button onclick="addParagraph()">Add Paragraph</button> 
+
+ 
+
+</body> 
+
+</html> 

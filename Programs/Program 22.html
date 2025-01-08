@@ -1,0 +1,97 @@
+<html> 
+
+<head> 
+
+    <title>Animal Array</title> 
+
+    <script> 
+
+        // Array of animals 
+
+        const animals = ["Lion", "Tiger", "Elephant", "Giraffe", "Zebra"]; 
+
+ 
+
+        function showAnimal() { 
+
+            // Get the value from the input field 
+
+            const indexInput = document.getElementById("indexInput").value; 
+
+             
+
+            // Print the index entered by the user 
+
+            document.getElementById("result").innerHTML = `You entered index: ${indexInput}`; 
+
+ 
+
+            try { 
+
+                // Convert the input to a number 
+
+                const index = parseInt(indexInput, 10); 
+
+ 
+
+                // Check if the input is a valid number 
+
+                if (isNaN(index)) { 
+
+                    throw new Error("Invalid input. Please enter a number."); 
+
+                } 
+
+                // Check if the index is within the range of the array 
+
+                if (index < 0 || index >= animals.length) { 
+
+                    throw new Error(`Index ${index} is out of range. Please enter a valid index between 0 and ${animals.length - 1}.`); 
+
+                } 
+
+                // If everything is valid, display the animal at the given index 
+
+                document.getElementById("result").innerHTML += `<br>The animal at index ${index} is: ${animals[index]}`; 
+
+ 
+
+            } catch (error) { 
+
+                // Display the error message 
+
+                document.getElementById("result").innerHTML += `<br>Error: ${error.message}`; 
+
+            } 
+
+        } 
+
+    </script> 
+
+</head> 
+
+<body> 
+
+    <h1>Animal Array</h1> 
+
+    <p>Enter the index of the animal you want to see (0 to 4):</p> 
+
+     
+
+    <!-- Input field for the index --> 
+
+    <input type="text" id="indexInput"> 
+
+     
+
+    <!-- Button to submit the input --> 
+
+    <button onclick="showAnimal()">Show Animal</button> 
+
+    <!-- Div to display the result --> 
+
+    <div id="result"></div> 
+
+</body> 
+
+</html> 

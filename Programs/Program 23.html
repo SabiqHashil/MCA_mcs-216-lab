@@ -1,0 +1,139 @@
+<html> 
+
+<head> 
+
+    <title>Multiplication with Error Handling</title> 
+
+    <script> 
+
+        // Define the MultiplicatorUnitFailure exception class 
+
+        class MultiplicatorUnitFailure extends Error { 
+
+            constructor(message) { 
+
+                super(message); 
+
+                this.name = "MultiplicatorUnitFailure"; 
+
+            } 
+
+        } 
+
+ 
+
+        // Simulate the clunky primitiveMultiply function 
+
+        function primitiveMultiply(a, b) { 
+
+            if (Math.random() < 0.8) { 
+
+                // In 80% of cases, throw an exception 
+
+                throw new MultiplicatorUnitFailure("Multiplication failed, retrying..."); 
+
+            } else { 
+
+                // In 20% of cases, return the product 
+
+                return a * b; 
+
+            } 
+
+        } 
+
+ 
+
+        // A function that keeps trying until the multiplication succeeds 
+
+        function reliableMultiply(a, b) { 
+
+            while (true) { 
+
+                try { 
+
+                    // Try multiplying using primitiveMultiply 
+
+                    return primitiveMultiply(a, b); 
+
+                } catch (e) { 
+
+                    // Catch only MultiplicatorUnitFailure exceptions and retry 
+
+                    if (e instanceof MultiplicatorUnitFailure) { 
+
+                        console.log(e.message); // Log the error message to the console 
+
+                    } else { 
+
+                        // If it's another error, rethrow it 
+
+                        throw e; 
+
+                    } 
+
+                } 
+
+            } 
+
+        } 
+
+ 
+
+        // Function to test reliableMultiply when called by the user 
+
+        function testMultiply() { 
+
+            const num1 = parseInt(document.getElementById("num1").value, 10); 
+
+            const num2 = parseInt(document.getElementById("num2").value, 10); 
+
+ 
+
+            try { 
+
+                const result = reliableMultiply(num1, num2); 
+
+                document.getElementById("result").innerHTML = `Result: ${result}`; 
+
+            } catch (error) { 
+
+                document.getElementById("result").innerHTML = `Unexpected error: ${error.message}`; 
+
+            } 
+
+        } 
+
+    </script> 
+
+</head> 
+
+<body> 
+
+    <h1>Multiplication with Error Handling</h1> 
+
+    <p>Enter two numbers to multiply:</p> 
+
+ 
+
+    <!-- Input fields for two numbers --> 
+
+    <input type="number" id="num1" placeholder="Number 1"> 
+
+    <input type="number" id="num2" placeholder="Number 2"> 
+
+ 
+
+    <!-- Button to trigger multiplication --> 
+
+    <button onclick="testMultiply()">Multiply</button> 
+
+ 
+
+    <!-- Div to display the result --> 
+
+    <div id="result"></div> 
+
+</body> 
+
+</html> 

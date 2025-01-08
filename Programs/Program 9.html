@@ -1,0 +1,83 @@
+<html> 
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Concatenate Full Name</title> 
+
+    <script> 
+
+        // JavaScript function to concatenate first and last names 
+
+        function showFullName() { 
+
+            // Get values from the form input fields 
+
+            var firstName = document.getElementById("firstName").value; 
+
+            var lastName = document.getElementById("lastName").value; 
+
+ 
+
+            // Concatenate first name and last name 
+
+            var fullName = firstName + " " + lastName; 
+
+ 
+
+            // Display the full name below the "Try" button 
+
+            document.getElementById("fullNameDisplay").innerHTML = fullName; 
+
+        } 
+
+    </script> 
+
+</head> 
+
+<body> 
+
+ 
+
+    <h1>Accessing all the elements of HTML Form with document.forms</h1> 
+
+ 
+
+    <form> 
+
+        <label for="firstName">First name:</label> 
+
+        <input type="text" id="firstName" name="firstName" value="Bhagat"><br><br> 
+
+         
+
+        <label for="lastName">Last name:</label> 
+
+        <input type="text" id="lastName" name="lastName" value="Singh"><br><br> 
+
+         
+
+        <p>Click on "Try" button to show the value of elements in the form.</p> 
+
+         
+
+        <!-- Try button that triggers JavaScript function --> 
+
+        <button type="button" onclick="showFullName()">Try</button> 
+
+    </form> 
+
+ 
+
+    <!-- Area where the full name will be displayed --> 
+
+    <p id="fullNameDisplay"></p> 
+
+ 
+
+</body> 
+
+</html> 

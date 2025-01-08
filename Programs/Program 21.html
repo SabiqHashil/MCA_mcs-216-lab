@@ -1,0 +1,163 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Grade Labs</title> 
+
+    <style> 
+
+        body { 
+
+            font-family: Arial, sans-serif; 
+
+            text-align: center; 
+
+            margin-top: 50px; 
+
+        } 
+
+        button { 
+
+            margin: 20px; 
+
+            padding: 10px 20px; 
+
+            font-size: 16px; 
+
+            cursor: pointer; 
+
+        } 
+
+        #results { 
+
+            margin-top: 30px; 
+
+            font-size: 18px; 
+
+        } 
+
+    </style> 
+
+</head> 
+
+<body> 
+
+ 
+
+    <h1>Student Lab Grading</h1> 
+
+    <button onclick="gradeLabs()">Grade Labs</button> 
+
+     
+
+    <!-- Section to display the grading results --> 
+
+    <div id="results"></div> 
+
+ 
+
+    <script> 
+
+        // Example array of student objects with runLab methods and expected results 
+
+        const labs = [ 
+
+            { 
+
+                student: 'Alice', 
+
+                runLab: function () { 
+
+                    return 3 + 2;  // Alice's solution 
+
+                }, 
+
+                expectedResult: 5 
+
+            }, 
+
+            { 
+
+                student: 'Bob', 
+
+                runLab: function () { 
+
+                    return 2 * 2;  // Bob's solution 
+
+                }, 
+
+                expectedResult: 4 
+
+            }, 
+
+            { 
+
+                student: 'Charlie', 
+
+                runLab: function () { 
+
+                    return 10 / 2;  // Charlie's solution 
+
+                }, 
+
+                expectedResult: 6  // Incorrect expected result for failure case 
+
+            } 
+
+        ]; 
+
+ 
+
+        // Function to grade the labs and display the results 
+
+        function gradeLabs() { 
+
+            let resultDisplay = document.getElementById('results'); 
+
+            resultDisplay.innerHTML = '';  // Clear previous results 
+
+ 
+
+            labs.forEach(lab => { 
+
+                try { 
+
+                    const result = lab.runLab();  // Run the student's lab function 
+
+ 
+
+                    // Compare the result with the expected result 
+
+                    if (result === lab.expectedResult) { 
+
+                        resultDisplay.innerHTML += `<p style="color: green;">${lab.student}'s lab passed!</p>`; 
+
+                    } else { 
+
+                        throw new Error(`${lab.student}'s lab failed. Expected ${lab.expectedResult} but got ${result}.`); 
+
+                    } 
+
+                } catch (error) { 
+
+                    resultDisplay.innerHTML += `<p style="color: red;">${error.message}</p>`; 
+
+                } 
+
+            }); 
+
+        } 
+
+    </script> 
+
+ 
+
+</body> 
+
+</html> 

@@ -1,0 +1,127 @@
+<html> 
+
+<head> 
+
+     <title>Locate Scalpel</title> 
+
+    <style> 
+
+        body { 
+
+            font-family: Arial, sans-serif; 
+
+            text-align: center; 
+
+            margin-top: 50px; 
+
+        } 
+
+        #result { 
+
+            margin-top: 20px; 
+
+            font-weight: bold; 
+
+        } 
+
+    </style> 
+
+    <script> 
+
+        // Simulated storage for nests 
+
+        const nests = { 
+
+            'Nest1': { scalpel: 'Nest2' }, 
+
+            'Nest2': { scalpel: 'Nest3' }, 
+
+            'Nest3': { scalpel: 'Nest1' }, 
+
+            'Nest4': { scalpel: 'Nest5' }, 
+
+            'Nest5': { scalpel: 'Nest4' } 
+
+        }; 
+
+        // Simulate asynchronous storage access 
+
+        function anyStorage(nestName) { 
+
+            return new Promise((resolve) => { 
+
+                setTimeout(() => { 
+
+                    resolve(nests[nestName]); 
+
+                }, 500); // Simulate network delay 
+
+            }); 
+
+        } 
+
+        // Async function to locate the scalpel 
+
+        async function locateScalpel(startNest) { 
+
+            let currentNest = startNest; 
+
+            const visitedNests = new Set(); 
+
+ 
+
+            while (true) { 
+
+                // If we have already visited this nest, we've found the loop 
+
+                if (visitedNests.has(currentNest)) { 
+
+                    return `Scalpel located at: ${currentNest} (loop detected)`; 
+
+                } 
+
+                // Mark the current nest as visited 
+
+                visitedNests.add(currentNest); 
+
+                // Access the storage of the current nest 
+
+                const storage = await anyStorage(currentNest); 
+
+                // Get the next nest from the storage 
+
+                currentNest = storage.scalpel; 
+
+            } 
+
+        } 
+
+        // Function to start the search from a specific nest 
+
+        async function startSearch() { 
+
+            const result = await locateScalpel('Nest1'); 
+
+            document.getElementById('result').innerText = result; 
+
+        } 
+
+    </script> 
+
+</head> 
+
+<body> 
+
+    <h1>Locate the Scalpel</h1> 
+
+    <button onclick="startSearch()">Locate Scalpel Starting from Nest1</button> 
+
+    <div id="result">Click the button to start locating the scalpel.</div> 
+
+</body> 
+
+</html> 
+
+ 
+
+ 

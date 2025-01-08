@@ -1,0 +1,45 @@
+<html lang="en"> 
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Image Change on Events</title> 
+
+    <style> 
+
+        img { 
+
+            width: 300px; 
+
+            height: 200px; 
+
+        } 
+
+    </style> 
+
+</head> 
+
+<body> 
+
+    <h1>Image Change on Mouse Events</h1> 
+
+    <img id="myImage" src="img2.jpg" OnMouseover="changeImage('img1.jpg')"> 
+
+ 
+
+    <script> 
+
+        function changeImage(newSrc) { 
+
+            document.getElementById('myImage').src = newSrc; 
+
+        } 
+
+    </script> 
+
+</body> 
+
+</html> 

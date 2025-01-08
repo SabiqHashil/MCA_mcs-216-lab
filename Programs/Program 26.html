@@ -1,0 +1,75 @@
+<html> 
+
+<head> 
+
+     <title>Live Clock</title> 
+
+    <style> 
+
+        body { 
+
+            font-family: Arial, sans-serif; 
+
+            text-align: center; 
+
+            margin-top: 20%; 
+
+        } 
+
+        #clock { 
+
+            font-size: 48px; 
+
+            color: #333; 
+
+        } 
+
+    </style> 
+
+    <script> 
+
+        // Function to update the clock 
+
+        function updateClock() { 
+
+            const now = new Date(); // Get the current date and time 
+
+            const hours = String(now.getHours()).padStart(2, '0'); // Get hours and format 
+
+            const minutes = String(now.getMinutes()).padStart(2, '0'); // Get minutes and format 
+
+            const seconds = String(now.getSeconds()).padStart(2, '0'); // Get seconds and format 
+
+ 
+
+            // Display the time in HH:MM:SS format 
+
+            document.getElementById("clock").innerText = `${hours}:${minutes}:${seconds}`; 
+
+        } 
+
+ 
+
+        // Start the clock when the page loads 
+
+        window.onload = function() { 
+
+            updateClock(); // Initial call to display time immediately 
+
+            setInterval(updateClock, 1000); // Update time every second 
+
+        }; 
+
+    </script> 
+
+</head> 
+
+<body> 
+
+    <h1>Live Clock</h1> 
+
+    <div id="clock"></div> <!-- Div to display the clock --> 
+
+</body> 
+
+</html> 

@@ -1,0 +1,157 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Product Details</title> 
+
+    <style> 
+
+        body { 
+
+            background-color: #2a2a2a; 
+
+            color: white; 
+
+            font-family: Arial, sans-serif; 
+
+            text-align: center; 
+
+        } 
+
+        .product { 
+
+            font-size: 24px; 
+
+            margin: 10px 0; 
+
+        } 
+
+        button { 
+
+            margin: 10px; 
+
+            padding: 10px 20px; 
+
+            background-color: #555; 
+
+            color: white; 
+
+            border: none; 
+
+            cursor: pointer; 
+
+        } 
+
+        button:hover { 
+
+            background-color: #888; 
+
+        } 
+
+    </style> 
+
+    <script> 
+
+        // Function to add TV product 
+
+        function addProduct() { 
+
+            // Check if TV is already added 
+
+            if (!document.getElementById("tv")) { 
+
+                // Create a new <p> element for TV 
+
+                var newProduct = document.createElement("p"); 
+
+                newProduct.id = "tv"; // Give the new element an id 
+
+                newProduct.className = "product"; // Add class for styling 
+
+                 
+
+                // Create a text node for TV product 
+
+                var productDetails = document.createTextNode("TV - 800$"); 
+
+                 
+
+                // Append text to the new <p> element 
+
+                newProduct.appendChild(productDetails); 
+
+                 
+
+                // Append the new <p> element to the product list 
+
+                document.getElementById("product-list").appendChild(newProduct); 
+
+            } else { 
+
+                alert("TV already added!"); 
+
+            } 
+
+        } 
+
+ 
+
+        // Function to delete the cell phone product 
+
+        function deleteCellPhone() { 
+
+            var cellPhone = document.getElementById("cell-phone"); 
+
+            if (cellPhone) { 
+
+                cellPhone.remove(); 
+
+            } else { 
+
+                alert("Cell phone details already deleted!"); 
+
+            } 
+
+        } 
+
+    </script> 
+
+</head> 
+
+<body> 
+
+ 
+
+    <h1>Product Details</h1> 
+
+ 
+
+    <!-- Product list --> 
+
+    <div id="product-list"> 
+
+        <p class="product">Laptop - 1000$</p> 
+
+        <p id="cell-phone" class="product">Cellphone - 300$</p> 
+
+    </div> 
+
+ 
+
+    <!-- Buttons to add TV and delete cellphone --> 
+
+    <button onclick="addProduct()">Add TV</button> 
+
+    <button onclick="deleteCellPhone()">Delete Cellphone</button> 
+
+ 
+
+</body> 
+
+</html> 

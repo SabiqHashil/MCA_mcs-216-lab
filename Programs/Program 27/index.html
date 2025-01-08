@@ -1,0 +1,91 @@
+<html> 
+
+<head> 
+
+      <title>Load External HTML</title> 
+
+    <style> 
+
+        body { 
+
+            font-family: Arial, sans-serif; 
+
+            text-align: center; 
+
+            margin-top: 50px; 
+
+        } 
+
+        #externalContent { 
+
+            border: 1px solid #ccc; 
+
+            padding: 20px; 
+
+            margin-top: 20px; 
+
+            display: inline-block; 
+
+        } 
+
+    </style> 
+
+    <script> 
+
+        // Function to load external HTML file 
+
+        function loadExternalContent() { 
+
+            const xhr = new XMLHttpRequest(); // Create a new XMLHttpRequest object 
+
+ 
+
+            // Configure it: GET-request for the URL of the external file 
+
+            xhr.open('GET', 'external-content.html', true); 
+
+ 
+
+            // Set up the onload callback 
+
+            xhr.onload = function() { 
+
+                if (xhr.status === 200) { // Check if the request was successful 
+
+                    document.getElementById('externalContent').innerHTML = xhr.responseText; // Load the response into the div 
+
+                } else { 
+
+                    document.getElementById('externalContent').innerHTML = 'Error loading content.'; 
+
+                } 
+
+            }; 
+
+ 
+
+            // Send the request 
+
+            xhr.send(); 
+
+        } 
+
+ 
+
+        // Load external content on window load 
+
+        window.onload = loadExternalContent; 
+
+    </script> 
+
+</head> 
+
+<body> 
+
+    <h1>Load External HTML File Example</h1> 
+
+    <div id="externalContent">Loading external content...</div> <!-- Div to display the external content --> 
+
+</body> 
+
+</html> 
